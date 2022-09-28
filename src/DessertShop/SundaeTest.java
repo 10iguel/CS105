@@ -11,12 +11,17 @@ class SundaeTest {
         Sundae sundae = new Sundae("Frio Rico",2,2.1,"cuacua",2.1);
         assertEquals("cuacua",sundae.getToppingName(),"Error");
     }
+
     @Test
     public void getToppingPrice() {
         Sundae sundae = new Sundae("Frio Rico",2,2.1,"cuacua",2.1);
         assertEquals(2.1,sundae.getToppingPrice(),"Error");
     }
-
+    @Test
+    public void getToppingPricenegative() {
+        Sundae sundae = new Sundae("Frio Rico",2,2.1,"cuacua",-2.1);
+        assertEquals(0,sundae.getToppingPrice(),"Error");
+    }
     @Test
     public void setToppingName() {
         Sundae sun = new Sundae();
@@ -29,5 +34,11 @@ class SundaeTest {
         Sundae sun = new Sundae();
         sun.setToppingPrice(2.1);
         assertEquals(2.1,sun.getToppingPrice(),"Error");
+    }
+    @Test
+    public void setToppingPricenegative() {
+        Sundae sun = new Sundae();
+        sun.setToppingPrice(-2.1);
+        assertEquals(0,sun.getToppingPrice(),"Error");
     }
 }

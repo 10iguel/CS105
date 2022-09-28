@@ -18,19 +18,31 @@ public class Candy extends DessertItem {
 
     // getters
     public double getCandyWeight() {
-        return candyWeight;
+
+        if(candyWeight<0){
+            candyWeight=0;
+        }
+                return candyWeight;
     }
 
     public double getPricePerPound() {
-        return pricePerPound;
+
+        if(pricePerPound<0){
+            pricePerPound=0;
+        }
+                return pricePerPound;
     }
 
     // Setters
     public void setCandyWeight(double candyWeight) {
         this.candyWeight = candyWeight;
-    }
+
+        }
 
     public void setPricePerPound(double pricePerPound) {
         this.pricePerPound = pricePerPound;
+
     }
+
+
 }

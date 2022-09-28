@@ -18,10 +18,16 @@ public class IceCream extends DessertItem{
 
     // Getters
     public int getScoopCount() {
+        if(scoopCount<0){
+            scoopCount=0;
+        }
         return scoopCount;
     }
 
     public double getPricePerScoop() {
+        if(pricePerScoop<0){
+            pricePerScoop=0;
+        }
         return pricePerScoop;
     }
 
