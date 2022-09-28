@@ -5,11 +5,13 @@ public class IceCream extends DessertItem{
     private double pricePerScoop;
 
     public IceCream(){
+        super();
         this.scoopCount = 0;
         this.pricePerScoop = 0.0;
     }
 
-    public IceCream(int scoopCount, double pricePerScoop) {
+    public IceCream(String name,int scoopCount, double pricePerScoop) {
+        super(name);
         this.scoopCount = scoopCount;
         this.pricePerScoop = pricePerScoop;
     }

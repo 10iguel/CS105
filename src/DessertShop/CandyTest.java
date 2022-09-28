@@ -4,20 +4,29 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CandyTest {
-
     @Test
-    void getCandyWeight() {
+    public void getCandyWeight() {
+        Candy candy = new Candy("bar",2.5,1.5);
+        assertEquals(2.5, candy.getCandyWeight(),"Error");
     }
 
     @Test
-    void getPricePerPound() {
+    public void getPricePerPound() {
+        Candy candy = new Candy("bar",2.5,1.5);
+        assertEquals(1.5, candy.getPricePerPound(),"Error");
     }
 
     @Test
-    void setCandyWeight() {
+    public void setCandyWeight() {
+        Candy candy = new Candy();
+        candy.setCandyWeight(2.5);
+        assertEquals(2.5,candy.getCandyWeight(),"Error");
     }
 
     @Test
-    void setPricePerPound() {
+    public void setPricePerPound() {
+        Candy candy = new Candy();
+        candy.setPricePerPound(1.5);
+        assertEquals(1.5,candy.getPricePerPound(),"Error");
     }
 }

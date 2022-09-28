@@ -5,11 +5,13 @@ public class Cookie extends DessertItem {
     private double pricePerDozen;
 
     public Cookie(){
+        super();
         this.cookieQty = 0;
         this.pricePerDozen = 0.0;
     }
 
-    public Cookie(int cookieQty, double pricePerDozen) {
+    public Cookie(String name, int cookieQty, double pricePerDozen) {
+        super(name);
         this.cookieQty = cookieQty;
         this.pricePerDozen = pricePerDozen;
     }

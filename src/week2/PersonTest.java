@@ -31,7 +31,6 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PersonTest {
-
     @Test
     public void getName() {
         var res = new Person("Max","2010-01-10","male","123456789" );
