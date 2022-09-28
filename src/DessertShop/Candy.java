@@ -3,7 +3,7 @@ package DessertShop;
 public class Candy extends DessertItem {
     private double candyWeight;
     private double pricePerPound;
-
+//;lsidkjf;alsdkjf;asldjf
 
     public Candy(){
         super();
