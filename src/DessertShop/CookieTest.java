@@ -12,7 +12,7 @@ class CookieTest {
         assertEquals(2, cookie.getCookieQty(),"Error");
     }
     @Test
-    public void getCookieQtynegative() {
+    public void getCookieQtyNegative() {
         Cookie cookie = new Cookie("Cookie Dough",-2,2.5);
         assertEquals(0, cookie.getCookieQty(),"Error");
     }
@@ -22,7 +22,7 @@ class CookieTest {
         assertEquals(2.5, cookie.getPricePerDozen(),"Error");
     }
     @Test
-    public void getPricePerDozennegative() {
+    public void getPricePerDozenNegative() {
         Cookie cookie = new Cookie("Cookie Dough",2,-2.5);
         assertEquals(0, cookie.getPricePerDozen(),"Error");
     }
@@ -34,7 +34,7 @@ class CookieTest {
         assertEquals(5, cookie.getCookieQty(),"Error");
     }
     @Test
-    public void setCookieQtynegative() {
+    public void setCookieQtyNegative() {
         Cookie cookie = new Cookie();
         cookie.setCookieQty(-5);
         assertEquals(0, cookie.getCookieQty(),"Error");
@@ -47,7 +47,7 @@ class CookieTest {
         assertEquals(5, cookie.getPricePerDozen(),"Error");
     }
     @Test
-    public void setPricePerDozennegative() {
+    public void setPricePerDozenNegative() {
         Cookie cookie = new Cookie();
         cookie.setPricePerDozen(-5);
         assertEquals(0, cookie.getPricePerDozen(),"Error");

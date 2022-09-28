@@ -1,19 +1,19 @@
 package DessertShop;
 
-public class DessertItem  {
+public class DessertItem {
     private String name;
 
-    public DessertItem(){
+    public DessertItem() {
         this.name = "";
     }
-    public DessertItem(String name){
+
+    public DessertItem(String name) {
         this.name = name;
     }
     //Getters
 
     public String getName() {
-        name.trim();
-        return name;
+        return name.trim();
     }
     // Setters
 

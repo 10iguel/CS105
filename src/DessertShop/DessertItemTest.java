@@ -11,6 +11,12 @@ class DessertItemTest {
         DessertItem dessertItem = new DessertItem("Alfajor");
         assertEquals("Alfajor", dessertItem.getName());
     }
+    //Testing if they put spaces
+    @Test
+    public void getTrimName() {
+        DessertItem dessertItem = new DessertItem("        ");
+        assertEquals("", dessertItem.getName());
+    }
 
     @Test
     public void setName() {

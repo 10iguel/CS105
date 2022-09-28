@@ -22,9 +22,9 @@ public class DessertShop {
         int index = 0;
         for (DessertItem order: orders.getOrderList()){
             index++;
-            System.out.printf("%d : %s \n",index, order.getName());
+            System.out.printf("%d.- %s \n",index, order.getName());
         }
         System.out.println();
-        System.out.printf("The total of orders is %d",orders.itemCount());
+        System.out.printf("Total number of items in order: %d",orders.itemCount());
     }
 }

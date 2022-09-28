@@ -10,7 +10,7 @@ class CandyTest {
         assertEquals(3, candy.getCandyWeight(),"Error");
     }
     @Test
-    public void getCandyWeightnegative() {
+    public void getCandyWeightNegative() {
         Candy candy = new Candy("bar",-2.5,1.5);
         assertEquals(0, candy.getCandyWeight(),"Error");
     }
@@ -21,7 +21,7 @@ class CandyTest {
         assertEquals(1.5, candy.getPricePerPound(),"Error");
     }
     @Test
-    public void getPricePerPoundnegative() {
+    public void getPricePerPoundNegative() {
         Candy candy = new Candy("bar",2.5,-1.5);
         assertEquals(0, candy.getPricePerPound(),"Error");
     }
@@ -32,7 +32,7 @@ class CandyTest {
         assertEquals(2.5,candy.getCandyWeight(),"Error");
     }
     @Test
-    public void setCandyWeightnegative() {
+    public void setCandyWeightNegative() {
         Candy candy = new Candy();
         candy.setCandyWeight(-2.5);
         assertEquals(0,candy.getCandyWeight(),"Error");
@@ -44,7 +44,7 @@ class CandyTest {
         assertEquals(0,candy.getPricePerPound(),"Error");
     }
     @Test
-    public void setPricePerPoundnegative() {
+    public void setPricePerPoundNegative() {
         Candy candy = new Candy();
         candy.setPricePerPound(-1.5);
         assertEquals(0,candy.getPricePerPound(),"Error");

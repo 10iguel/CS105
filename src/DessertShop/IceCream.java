@@ -1,16 +1,16 @@
 package DessertShop;
 
-public class IceCream extends DessertItem{
+public class IceCream extends DessertItem {
     private int scoopCount;
     private double pricePerScoop;
 
-    public IceCream(){
+    public IceCream() {
         super();
         this.scoopCount = 0;
         this.pricePerScoop = 0.0;
     }
 
-    public IceCream(String name,int scoopCount, double pricePerScoop) {
+    public IceCream(String name, int scoopCount, double pricePerScoop) {
         super(name);
         this.scoopCount = scoopCount;
         this.pricePerScoop = pricePerScoop;
@@ -18,15 +18,15 @@ public class IceCream extends DessertItem{
 
     // Getters
     public int getScoopCount() {
-        if(scoopCount<0){
-            scoopCount=0;
+        if (scoopCount < 0) {
+            scoopCount = 0;
         }
         return scoopCount;
     }
 
     public double getPricePerScoop() {
-        if(pricePerScoop<0){
-            pricePerScoop=0;
+        if (pricePerScoop < 0) {
+            pricePerScoop = 0;
         }
         return pricePerScoop;
     }

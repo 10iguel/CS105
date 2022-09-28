@@ -4,7 +4,7 @@ public class Cookie extends DessertItem {
     private int cookieQty;
     private double pricePerDozen;
 
-    public Cookie(){
+    public Cookie() {
         super();
         this.cookieQty = 0;
         this.pricePerDozen = 0.0;
@@ -19,15 +19,15 @@ public class Cookie extends DessertItem {
     // Getter
 
     public int getCookieQty() {
-        if(cookieQty<0){
-            cookieQty=0;
+        if (cookieQty < 0) {
+            cookieQty = 0;
         }
         return cookieQty;
     }
 
     public double getPricePerDozen() {
-        if(pricePerDozen<0){
-            pricePerDozen=0;
+        if (pricePerDozen < 0) {
+            pricePerDozen = 0;
         }
         return pricePerDozen;
     }
