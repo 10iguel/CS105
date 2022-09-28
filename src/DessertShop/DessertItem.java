@@ -12,6 +12,7 @@ public class DessertItem  {
     //Getters
 
     public String getName() {
+        name.trim();
         return name;
     }
     // Setters

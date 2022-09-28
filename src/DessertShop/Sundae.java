@@ -18,10 +18,16 @@ public class Sundae extends IceCream {
     // Getters
 
     public String getToppingName() {
+        if(toppingPrice<0){
+            toppingPrice=0;
+        }
         return toppingName;
     }
 
     public double getToppingPrice() {
+        if(toppingPrice<0){
+            toppingPrice=0;
+        }
         return toppingPrice;
     }
 

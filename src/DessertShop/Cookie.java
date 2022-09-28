@@ -19,10 +19,16 @@ public class Cookie extends DessertItem {
     // Getter
 
     public int getCookieQty() {
+        if(cookieQty<0){
+            cookieQty=0;
+        }
         return cookieQty;
     }
 
     public double getPricePerDozen() {
+        if(pricePerDozen<0){
+            pricePerDozen=0;
+        }
         return pricePerDozen;
     }
 
