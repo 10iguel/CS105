@@ -1,3 +1,19 @@
+/**
+ * File: DessertItemTest.java
+ * Description: Creating a Test file for DessertItem Class and validations for the values.
+ * Lessons Learned: In this lesson I learned how to have testing cases for the wrong values
+ * and expect the right values
+ *  Testing case for not putting names.
+ *  public void getTrimName() {
+ *         DessertItem dessertItem = new DessertItem("        ");
+ *         assertEquals("", dessertItem.getName());
+ *     }
+ * Instructor's Name: Barbara Chamberlin
+ *
+ * @author: Miguel Espinoza.
+ * @since: 09/28/2022.
+ */
+
 package DessertShop;
 
 import org.junit.jupiter.api.Test;

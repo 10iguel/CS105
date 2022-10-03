@@ -1,3 +1,20 @@
+/**
+ * File: SundaeTest.java
+ * Description: Creating a Test file for Sundae Class and validations for the values.
+ * Lessons Learned: In this lesson I learned how to have testing cases for the wrong values
+ * and expect the right values
+ *  Testing case for a negative double
+ * public void setToppingPriceNegative() {
+ *         Sundae sun = new Sundae();
+ *         sun.setToppingPrice(-2.1);
+ *         assertEquals(0,sun.getToppingPrice(),"Error");
+ *     }
+ * Instructor's Name: Barbara Chamberlin
+ *
+ * @author: Miguel Espinoza.
+ * @since: 09/28/2022.
+ */
+
 package DessertShop;
 
 import org.junit.jupiter.api.Test;

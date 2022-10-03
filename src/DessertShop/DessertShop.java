@@ -1,3 +1,17 @@
+/**
+ * File: DessertShop.java
+ * Description: Creating an array of orders and printing out the result
+ * Lessons Learned: In this lesson I learned how to use the inheritance in my favor to sort better my classes .
+ *     Storing all of them in an Array
+ *     Order orders = new Order();
+ *     Calling a lots of objects in the same main method.
+ *     Candy candy1 = new Candy("Candy Corn", 1.5, .25);
+ * Instructor's Name: Barbara Chamberlin
+ *
+ * @author: Miguel Espinoza.
+ * @since: 09/28/2022.
+ */
+
 package DessertShop;
 
 public class DessertShop {

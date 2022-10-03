@@ -1,3 +1,21 @@
+/**
+ * File: CookieTest.java
+ * Description: Creating a Test file for Cookie Class and validations for the values.
+ * Lessons Learned: In this lesson I learned how to have testing cases for the wrong values
+ * and expect the right values
+ *  Testing case for a negative double
+ *  public void setCookieQtyNegative() {
+ *         Cookie cookie = new Cookie();
+ *         cookie.setCookieQty(-5);
+ *         assertEquals(0, cookie.getCookieQty(),"Error");
+ *     }
+ * Instructor's Name: Barbara Chamberlin
+ *
+ * @author: Miguel Espinoza.
+ * @since: 09/28/2022.
+ */
+
+
 package DessertShop;
 
 import org.junit.jupiter.api.Test;

@@ -1,3 +1,19 @@
+/**
+ * File: IceCreamTest.java
+ * Description: Creating a Test file for IceCream Class and validations for the values.
+ * Lessons Learned: In this lesson I learned how to have testing cases for the wrong values
+ * and expect the right values
+ *  Testing case for a negative double
+ * void getPricePerScoopNegative() {
+ *         IceCream cookie = new IceCream("Sundae", 2, -8);
+ *         assertEquals(0, cookie.getPricePerScoop(), "Error");
+ *     }
+ * Instructor's Name: Barbara Chamberlin
+ *
+ * @author: Miguel Espinoza.
+ * @since: 09/28/2022.
+ */
+
 package DessertShop;
 
 import org.junit.jupiter.api.Test;
