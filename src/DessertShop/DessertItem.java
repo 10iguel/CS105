@@ -16,8 +16,11 @@
 
 package DessertShop;
 
-public class DessertItem {
+public abstract class DessertItem {
     private String name;
+
+    private double taxPercent = 7.25;
+
 
     public DessertItem() {
         this.name = "";
@@ -31,11 +34,23 @@ public class DessertItem {
     public String getName() {
         return name.trim();
     }
+
+    public double getTaxPercent() {
+        return taxPercent;
+    }
     // Setters
 
     public void setName(String name) {
         this.name = name;
     }
 
+    public void setTaxPercent(double taxPercent) {
+        this.taxPercent = taxPercent;
+    }
 
+    public abstract double calculateCost();
+
+    public double calculateTax(){
+        return (taxPercent * calculateCost())/100 ;
+    }
 }

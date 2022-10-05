@@ -36,6 +36,10 @@ public class Candy extends DessertItem {
         this.pricePerPound = 0;
     }
 
+    public double calculateCost() {
+        return candyWeight*pricePerPound;
+    }
+
     public Candy(String name, double candyWeight, double pricePerPound) {
         super(name);
         this.candyWeight = candyWeight;

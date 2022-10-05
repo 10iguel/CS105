@@ -33,12 +33,14 @@ public class DessertShop {
         orders.add(cookie1);
 
         System.out.println("These are the names of the orders");
-        int index = 0;
         for (DessertItem order: orders.getOrderList()){
-            index++;
-            System.out.printf("%d.- %s \n",index, order.getName());
+            System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n", order.getName(), order.calculateCost(), order.calculateTax());
         }
+        System.out.printf("%s","----------------------------------------------\n");
+
         System.out.println();
-        System.out.printf("Total number of items in order: %d",orders.itemCount());
+        System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n", "Order Subtotals: ", orders.orderCost(), orders.orderTax());
+        System.out.printf("%-25s$%-8.2f\n", "Order Total: ", orders.orderCost()+ orders.orderTax());
+        System.out.printf("Total items in the order: %d",orders.itemCount());
     }
 }

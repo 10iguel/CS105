@@ -35,4 +35,20 @@ public class Order {
     public int itemCount(){
         return order.size();
     }
+
+    public double orderCost(){
+        double sum = 0;
+        for (DessertItem dessertItem : this.order) {
+            sum = (sum + dessertItem.calculateCost());
+        }
+        return sum;
+    }
+
+    public double orderTax(){
+        double sum = 0;
+        for (DessertItem dessertItem : this.order) {
+            sum = sum + dessertItem.calculateTax();
+        }
+        return sum;
+    }
 }

@@ -24,19 +24,19 @@ class DessertItemTest {
 
     @Test
     public void getName() {
-        DessertItem dessertItem = new DessertItem("Alfajor");
+        DessertItem dessertItem = new Candy("Alfajor",10,1);
         assertEquals("Alfajor", dessertItem.getName());
     }
     //Testing if they put spaces
     @Test
     public void getTrimName() {
-        DessertItem dessertItem = new DessertItem("        ");
+        DessertItem dessertItem = new Candy("        ",10,1);
         assertEquals("", dessertItem.getName());
     }
 
     @Test
     public void setName() {
-        DessertItem dessertItem = new DessertItem();
+        DessertItem dessertItem = new Candy();
         dessertItem.setName("cake");
         assertEquals("cake",dessertItem.getName());
     }
