@@ -2,7 +2,7 @@
  * File: Cookie.java
  * Description: Creating a subclass with the instance of a superclass
  * Lessons Learned: In this lesson I learned how to create an extended class and setting default values
- * for the attributes.
+ * for the attributes and overriding a method.
  *     extends, super, super()
  *     public class Cookie extends DessertItem
  *     default constructor
@@ -18,10 +18,14 @@
  *         this.pricePerDozen = pricePerDozen;
  *     }
  *     Validations if there are negative values entered
+ *     @Override
+ *     public double calculateCost() {
+ *         return cookieQty * pricePerDozen/12;
+ *     }
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 09/28/2022.
+ * @since: 10/05/2022.
  */
 
 package DessertShop;

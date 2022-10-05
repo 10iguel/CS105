@@ -1,17 +1,13 @@
 /**
  * File: DessertItem.java
  * Description: Creating a superclass
- * Lessons Learned: In this lesson I learned how to create a superclass and the use of trim .
- *     superclass
- *     DessertItem(String name) {
- *                 this.name = name;
- *         }
- *     trim()
- *     name.trim()
+ * Lessons Learned: In this lesson I learned how to create a new attribute and instanced with a value and use the abstract
+ * to call this class in all the subclasses.
+ *     public abstract class DessertItem
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 09/28/2022.
+ * @since: 10/05/2022.
  */
 
 package DessertShop;

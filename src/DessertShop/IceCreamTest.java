@@ -1,17 +1,18 @@
 /**
  * File: IceCreamTest.java
  * Description: Creating a Test file for IceCream Class and validations for the values.
- * Lessons Learned: In this lesson I learned how to have testing cases for the wrong values
+ * Lessons Learned: In this lesson I learned how to have testing cases for the wrong values and testing
+ * the override method
  * and expect the right values
  *  Testing case for a negative double
- * void getPricePerScoopNegative() {
- *         IceCream cookie = new IceCream("Sundae", 2, -8);
- *         assertEquals(0, cookie.getPricePerScoop(), "Error");
+ *     public void getCalculateCost() {
+ *         IceCream iceCream = new IceCream("Sundae", 3, 2.5);
+ *         assertEquals(7.5, iceCream.calculateCost(),"Error");
  *     }
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 09/28/2022.
+ * @since: 10/05/2022.
  */
 
 package DessertShop;
@@ -24,53 +25,64 @@ class IceCreamTest {
 
     @Test
     void getScoopCount() {
-        IceCream cookie = new IceCream("Sundae", 3, 2.5);
-        assertEquals(3, cookie.getScoopCount(), "Error");
+        IceCream iceCream = new IceCream("Sundae", 3, 2.5);
+        assertEquals(3, iceCream.getScoopCount(), "Error");
     }
 
     @Test
     void getScoopCountNegative() {
-        IceCream cookie = new IceCream("Sundae", -3, 2.5);
-        assertEquals(0, cookie.getScoopCount(), "Error");
+        IceCream iceCream = new IceCream("Sundae", -3, 2.5);
+        assertEquals(0, iceCream.getScoopCount(), "Error");
     }
 
     @Test
     void getPricePerScoop() {
-        IceCream cookie = new IceCream("Sundae", 2, 8);
-        assertEquals(8, cookie.getPricePerScoop(), "Error");
+        IceCream iceCream = new IceCream("Sundae", 2, 8);
+        assertEquals(8, iceCream.getPricePerScoop(), "Error");
     }
 
     @Test
     void getPricePerScoopNegative() {
-        IceCream cookie = new IceCream("Sundae", 2, -8);
-        assertEquals(0, cookie.getPricePerScoop(), "Error");
+        IceCream iceCream = new IceCream("Sundae", 2, -8);
+        assertEquals(0, iceCream.getPricePerScoop(), "Error");
     }
 
     @Test
     void setScoopCount() {
-        IceCream cookie = new IceCream();
-        cookie.setScoopCount(3);
-        assertEquals(3, cookie.getScoopCount(), "Error");
+        IceCream iceCream = new IceCream();
+        iceCream.setScoopCount(3);
+        assertEquals(3, iceCream.getScoopCount(), "Error");
     }
 
     @Test
     void setScoopCountNegative() {
-        IceCream cookie = new IceCream();
-        cookie.setScoopCount(-3);
-        assertEquals(0, cookie.getScoopCount(), "Error");
+        IceCream iceCream = new IceCream();
+        iceCream.setScoopCount(-3);
+        assertEquals(0, iceCream.getScoopCount(), "Error");
     }
 
     @Test
     void setPricePerScoop() {
-        IceCream cookie = new IceCream();
-        cookie.setPricePerScoop(3);
-        assertEquals(3, cookie.getPricePerScoop(), "Error");
+        IceCream iceCream = new IceCream();
+        iceCream.setPricePerScoop(3);
+        assertEquals(3, iceCream.getPricePerScoop(), "Error");
     }
 
     @Test
     void setPricePerScoopNegative() {
-        IceCream cookie = new IceCream();
-        cookie.setPricePerScoop(-3);
-        assertEquals(0, cookie.getPricePerScoop(), "Error");
+        IceCream iceCream = new IceCream();
+        iceCream.setPricePerScoop(-3);
+        assertEquals(0, iceCream.getPricePerScoop(), "Error");
     }
+    @Test
+    public void getCalculateCost() {
+        IceCream iceCream = new IceCream("Sundae", 3, 2.5);
+        assertEquals(7.5, iceCream.calculateCost(),"Error");
+    }
+    @Test
+    public void getCalculateTax() {
+        IceCream iceCream = new IceCream("Sundae", 3, 2.5);
+        assertEquals(0.54375, iceCream.calculateTax(),"Error");
+    }
+
 }

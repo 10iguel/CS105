@@ -1,11 +1,12 @@
 /**
  * File: DessertShop.java
  * Description: Creating an array of orders and printing out the result
- * Lessons Learned: In this lesson I learned how to use the inheritance in my favor to sort better my classes .
- *     Storing all of them in an Array
- *     Order orders = new Order();
- *     Calling a lots of objects in the same main method.
- *     Candy candy1 = new Candy("Candy Corn", 1.5, .25);
+ * Lessons Learned: In this lesson I learned how to use the inheritance in my favor to sort better
+ * my classes and string formatting.
+ * Storing all of them in an Array
+ * Order orders = new Order();
+ * Calling a lots of objects in the same main method.
+ * Candy candy1 = new Candy("Candy Corn", 1.5, .25);
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
@@ -33,14 +34,14 @@ public class DessertShop {
         orders.add(cookie1);
 
         System.out.println("These are the names of the orders");
-        for (DessertItem order: orders.getOrderList()){
+        for (DessertItem order : orders.getOrderList()) {
             System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n", order.getName(), order.calculateCost(), order.calculateTax());
         }
-        System.out.printf("%s","----------------------------------------------\n");
+        System.out.printf("%s", "----------------------------------------------\n");
 
         System.out.println();
         System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n", "Order Subtotals: ", orders.orderCost(), orders.orderTax());
-        System.out.printf("%-25s$%-8.2f\n", "Order Total: ", orders.orderCost()+ orders.orderTax());
-        System.out.printf("Total items in the order: %d",orders.itemCount());
+        System.out.printf("%-25s$%-8.2f\n", "Order Total: ", orders.orderCost() + orders.orderTax());
+        System.out.printf("Total items in the order: %d", orders.itemCount());
     }
 }

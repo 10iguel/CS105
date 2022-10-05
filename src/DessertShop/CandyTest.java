@@ -1,18 +1,16 @@
 /**
- * File: CandyTest.java
+ * File: IceCreamTest.java
  * Description: Creating a Test file for Candy Class and validations for the values.
- * Lessons Learned: In this lesson I learned how to have testing cases for the wrong values
- * and expect the right values
- *  Testing case for a negative double
- *  public void setCandyWeightNegative() {
- *         Candy candy = new Candy();
- *         candy.setCandyWeight(-2.5);
- *         assertEquals(0,candy.getCandyWeight(),"Error");
+ * Lessons Learned: In this lesson I learned how to have testing cases for the wrong values and testing
+ * the override method
+ *     public void getCalculateTax() {
+ *         Candy candy = new Candy("bar",3,1.5);
+ *         assertEquals(0.32625, candy.calculateTax(),"Error");
  *     }
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 09/28/2022.
+ * @since: 10/05/2022.
  */
 
 package DessertShop;
@@ -65,5 +63,15 @@ class CandyTest {
         Candy candy = new Candy();
         candy.setPricePerPound(-1.5);
         assertEquals(0,candy.getPricePerPound(),"Error");
+    }
+    @Test
+    public void getCalculateCost() {
+        Candy candy = new Candy("bar",3,1.5);
+        assertEquals(4.5, candy.calculateCost(),"Error");
+    }
+    @Test
+    public void getCalculateTax() {
+        Candy candy = new Candy("bar",3,1.5);
+        assertEquals(0.32625, candy.calculateTax(),"Error");
     }
 }

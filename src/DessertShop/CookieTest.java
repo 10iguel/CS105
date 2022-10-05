@@ -70,4 +70,14 @@ class CookieTest {
         cookie.setPricePerDozen(-5);
         assertEquals(0, cookie.getPricePerDozen(),"Error");
     }
+    @Test
+    public void getCalculateCost() {
+        Cookie cookie = new Cookie("Cookie Dough",2,2.5);
+        assertEquals(0.4166666666666667, cookie.calculateCost(),"Error");
+    }
+    @Test
+    public void getCalculateTax() {
+        Cookie cookie = new Cookie("Cookie Dough",2,2.5);
+        assertEquals(0.030208333333333334, cookie.calculateTax(),"Error");
+    }
 }

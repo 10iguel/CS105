@@ -2,7 +2,7 @@
  * File: Sundae.java
  * Description: Creating a subclass with the instance of a superclass
  * Lessons Learned: In this lesson I learned how to create an extended class and setting default values
- * for the attributes.
+ * for the attributes and override the methods.
  *     extends, super, super()
  *     public class Sundae extends IceCream
  *     default constructor
@@ -19,10 +19,14 @@
  *         this.toppingPrice = toppingPrice;
  *     }
  *     Validations if there are negative values entered
+ *     @Override
+ *     public double calculateCost() {
+ *         return super.calculateCost() + toppingPrice;
+ *     }
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 09/28/2022.
+ * @since: 10/05/2022.
  */
 
 package DessertShop;

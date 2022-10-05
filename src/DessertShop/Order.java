@@ -1,17 +1,19 @@
 /**
  * File: Order.java
  * Description: Creating an Object to help sort better my Desert Items
- * Lessons Learned: In this lesson I learned how to use the array method to use them with the superclass .
+ * Lessons Learned: In this lesson I learned how to loop to an existing array and get the total cost and total tax .
  *     add method
- *     public void add (DessertItem desert){
- *         order.add(desert);
+ *     public double orderCost(){
+ *         double sum = 0;
+ *         for (DessertItem dessertItem : this.order) {
+ *             sum = (sum + dessertItem.calculateCost());
+ *         }
+ *         return sum;
  *     }
- *      public ArrayList<DessertItem> getOrderList() {
- *         return order;
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 09/28/2022.
+ * @since: 10/05/2022.
  */
 
 package DessertShop;
