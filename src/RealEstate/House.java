@@ -14,7 +14,7 @@ public class House extends Residential {
     }
 
     public double getYardAcres() {
-        return yardAcres;
+        return yardAcres < 0 ? yardAcres = 0 : yardAcres;
     }
 
     public void setYardAcres(double yardAcres) {

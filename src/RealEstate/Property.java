@@ -19,7 +19,7 @@ public class Property {
     }
 
     public int getZip() {
-        return zip;
+        return zip  < 0 ? zip = 0: zip;
     }
 
     public void setStreetAddress(String streetAddress) {

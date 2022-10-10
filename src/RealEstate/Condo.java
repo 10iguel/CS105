@@ -14,7 +14,7 @@ public class Condo extends Residential {
     }
 
     public int getFloorLvl() {
-        return floorLvl;
+        return floorLvl < 0 ? floorLvl =0 : floorLvl;
     }
 
     public void setFloorLvl(int floorLvl) {

@@ -20,15 +20,16 @@ public class Residential extends Property {
     }
 
     public int getBedCount() {
-        return bedCount;
+        return bedCount < 0 ? bedCount = 0 : bedCount;
     }
 
     public int getBathCount() {
-        return bathCount;
+        return bathCount < 0 ? bathCount = 0 : bathCount;
     }
 
     public double getSize() {
-        return sqFootage;
+        
+        return sqFootage <0 ? sqFootage = 0: sqFootage;
     }
 
     public void setBedCount(int bedCount) {
