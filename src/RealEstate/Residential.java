@@ -1,3 +1,15 @@
+/**
+ * File: Residential.java
+ * Description: Creating a superclass for 2 subclasses
+ * Lessons Learned: In this lesson I learned how to use the inheritance properties to create organized
+ * classes and validations on the setters with ternary operators
+ *     bedCount < 0 ? 0 : bedCount
+ * Instructor's Name: Barbara Chamberlin
+ *
+ * @author: Miguel Espinoza.
+ * @since: 10/11/2022.
+ */
+
 package RealEstate;
 
 public class Residential extends Property {

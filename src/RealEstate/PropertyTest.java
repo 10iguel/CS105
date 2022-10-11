@@ -1,3 +1,14 @@
+/**
+ * File: CondoTest.java
+ * Description: Creating a testing file to proof validations
+ * Lessons Learned: In this lesson I learned how to use test classes and its setters and getters.
+ *      property.setZip("           ");
+ * Instructor's Name: Barbara Chamberlin
+ *
+ * @author: Miguel Espinoza.
+ * @since: 10/11/2022.
+ */
+
 package RealEstate;
 
 import org.junit.jupiter.api.Test;
@@ -30,5 +41,12 @@ class PropertyTest {
         Property property = new Property();
         property.setZip("8451");
         assertEquals("8451", property.getZip());
+    }
+
+    @Test
+    void setZipWithSpaces() {
+        Property property = new Property();
+        property.setZip("           ");
+        assertEquals("", property.getZip());
     }
 }

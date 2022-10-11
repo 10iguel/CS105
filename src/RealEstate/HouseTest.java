@@ -1,3 +1,14 @@
+/**
+ * File: HouseTest.java
+ * Description: Creating a testing file to proof validations
+ * Lessons Learned: In this lesson I learned how to use test classes and its setters and getters.
+ *      house.setYardAcres(-2.5);
+ * Instructor's Name: Barbara Chamberlin
+ *
+ * @author: Miguel Espinoza.
+ * @since: 10/11/2022.
+ */
+
 package RealEstate;
 
 import org.junit.jupiter.api.Test;
@@ -17,5 +28,11 @@ class HouseTest {
         House house = new House();
         house.setYardAcres(2.5);
         assertEquals(2.5, house.getYardAcres());
+    }
+    @Test
+    void setYardAcresNegative() {
+        House house = new House();
+        house.setYardAcres(-2.5);
+        assertEquals(0, house.getYardAcres());
     }
 }

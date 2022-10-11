@@ -1,3 +1,14 @@
+/**
+ * File: Condo.java
+ * Description: Creating a subclass to be use the super classes
+ * Lessons Learned: In this lesson I learned how to use the inheritance properties to create organized
+ * classes and validations on the setters with ternary operators
+ *      floorLvl < 0 ? 0 : floorLvl
+ * Instructor's Name: Barbara Chamberlin
+ *
+ * @author: Miguel Espinoza.
+ * @since: 10/11/2022.
+ */
 package RealEstate;
 
 public class Condo extends Residential {

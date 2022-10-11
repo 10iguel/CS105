@@ -1,3 +1,14 @@
+/**
+ * File: CondoTest.java
+ * Description: Creating a testing file to proof validations
+ * Lessons Learned: In this lesson I learned how to use test classes and its setters and getters.
+ *      condo.setFloorLvl(-5);
+ * Instructor's Name: Barbara Chamberlin
+ *
+ * @author: Miguel Espinoza.
+ * @since: 10/11/2022.
+ */
+
 package RealEstate;
 
 import org.junit.jupiter.api.Test;

@@ -1,3 +1,15 @@
+/**
+ * File: Condo.java
+ * Description: Creating a subclass to be use the super classes
+ * Lessons Learned: In this lesson I learned how to use the inheritance properties to create organized
+ * classes and validations on the setters with ternary operators
+ *      yardAcres < 0 ? 0 : yardAcres
+ * Instructor's Name: Barbara Chamberlin
+ *
+ * @author: Miguel Espinoza.
+ * @since: 10/11/2022.
+ */
+
 package RealEstate;
 
 public class House extends Residential {
@@ -14,7 +26,7 @@ public class House extends Residential {
     }
 
     public double getYardAcres() {
-        return yardAcres < 0 ? yardAcres = 0 : yardAcres;
+        return yardAcres;
     }
 
     public void setYardAcres(double yardAcres) {
