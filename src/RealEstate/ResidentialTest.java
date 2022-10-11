@@ -8,19 +8,19 @@ class ResidentialTest {
 
     @Test
     void getBedCount() {
-        Residential residential = new Residential("758 E",12,2,1,2.5);
+        Residential residential = new Residential("758 E","12",2,1,2.5);
         assertEquals(2, residential.getBedCount());
     }
 
     @Test
     void getBathCount() {
-        Residential residential = new Residential("758 E",12,2,1,2.5);
+        Residential residential = new Residential("758 E","12",2,1,2.5);
         assertEquals(1, residential.getBathCount());
     }
 
     @Test
     void getSize() {
-        Residential residential = new Residential("758 E",12,2,1,2.5);
+        Residential residential = new Residential("758 E","12",2,1,2.5);
         assertEquals(2.5, residential.getSize());
     }
 
@@ -39,9 +39,22 @@ class ResidentialTest {
     }
 
     @Test
+    void setBathCountNegative() {
+        Residential residential = new Residential();
+        residential.setBathCount(-5);
+        assertEquals(0, residential.getBathCount());
+    }
+
+    @Test
     void setSize() {
         Residential residential = new Residential();
         residential.setSize(2.2);
         assertEquals(2.2, residential.getSize());
+    }
+    @Test
+    void setSizeNegative() {
+        Residential residential = new Residential();
+        residential.setSize(-5);
+        assertEquals(0, residential.getSize());
     }
 }

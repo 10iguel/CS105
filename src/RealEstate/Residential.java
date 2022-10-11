@@ -12,7 +12,7 @@ public class Residential extends Property {
         this.sqFootage = 0;
     }
 
-    public Residential(String streetAddress, int zip, int bedCount, int bathCount, double sqFootage) {
+    public Residential(String streetAddress, String zip, int bedCount, int bathCount, double sqFootage) {
         super(streetAddress,zip);
         this.bedCount = bedCount;
         this.bathCount = bathCount;
@@ -20,27 +20,26 @@ public class Residential extends Property {
     }
 
     public int getBedCount() {
-        return bedCount < 0 ? bedCount = 0 : bedCount;
+        return bedCount;
     }
 
     public int getBathCount() {
-        return bathCount < 0 ? bathCount = 0 : bathCount;
+        return bathCount;
     }
 
     public double getSize() {
-        
-        return sqFootage <0 ? sqFootage = 0: sqFootage;
+        return sqFootage;
     }
 
     public void setBedCount(int bedCount) {
-        this.bedCount = bedCount;
+        this.bedCount = bedCount < 0 ? 0 : bedCount;
     }
 
     public void setBathCount(int bathCount) {
-        this.bathCount = bathCount;
+        this.bathCount = bathCount < 0 ? 0 : bathCount;
     }
 
     public void setSize(double sqFootage) {
-        this.sqFootage = sqFootage;
+        this.sqFootage = sqFootage < 0 ? 0 : sqFootage;
     }
 }

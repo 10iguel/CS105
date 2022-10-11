@@ -8,14 +8,14 @@ class PropertyTest {
 
     @Test
     void getStreetAddress() {
-        Property property = new Property("254 S", 8425);
+        Property property = new Property("254 S", "8425");
         assertEquals("254 S", property.getStreetAddress());
     }
 
     @Test
     void getZip() {
-        Property property = new Property("254 S", 8425);
-        assertEquals(8425, property.getZip());
+        Property property = new Property("254 S", "8425");
+        assertEquals("8425", property.getZip());
     }
 
     @Test
@@ -28,7 +28,7 @@ class PropertyTest {
     @Test
     void setZip() {
         Property property = new Property();
-        property.setZip(8451);
-        assertEquals(8451, property.getZip());
+        property.setZip("8451");
+        assertEquals("8451", property.getZip());
     }
 }

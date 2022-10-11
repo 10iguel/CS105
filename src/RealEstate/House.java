@@ -8,7 +8,7 @@ public class House extends Residential {
         this.yardAcres = 0;
     }
 
-    public House(String streetAddress, int zip, int bedCount, int bathCount, double sqFootage, double yardAcres) {
+    public House(String streetAddress, String zip, int bedCount, int bathCount, double sqFootage, double yardAcres) {
         super(streetAddress, zip, bedCount, bathCount, sqFootage);
         this.yardAcres = yardAcres;
     }
@@ -18,6 +18,6 @@ public class House extends Residential {
     }
 
     public void setYardAcres(double yardAcres) {
-        this.yardAcres = yardAcres;
+        this.yardAcres = yardAcres < 0 ? 0 : yardAcres;
     }
 }

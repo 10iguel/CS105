@@ -2,14 +2,14 @@ package RealEstate;
 
 public class Property {
     private String streetAddress;
-    private int zip;
+    private String  zip;
 
     public Property(){
         this.streetAddress = "";
-        this.zip = 0;
+        this.zip = "";
     }
 
-    public Property(String streetAddress, int zip) {
+    public Property(String streetAddress, String zip) {
         this.streetAddress = streetAddress;
         this.zip = zip;
     }
@@ -18,15 +18,15 @@ public class Property {
         return streetAddress;
     }
 
-    public int getZip() {
-        return zip  < 0 ? zip = 0: zip;
+    public String getZip() {
+        return zip;
     }
 
     public void setStreetAddress(String streetAddress) {
-        this.streetAddress = streetAddress;
+        this.streetAddress = streetAddress.trim();
     }
 
-    public void setZip(int zip) {
-        this.zip = zip;
+    public void setZip(String zip) {
+        this.zip = zip.trim();
     }
 }
