@@ -7,15 +7,16 @@
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 10/05/2022.
+ * @since: 10/12/2022.
  */
 
 package DessertShop;
 
-public abstract class DessertItem {
+public abstract class DessertItem implements Packaging {
     private String name;
 
     private double taxPercent = 7.25;
+    private String packaging;
 
 
     public DessertItem() {
@@ -34,14 +35,21 @@ public abstract class DessertItem {
     public double getTaxPercent() {
         return taxPercent;
     }
+
+    public String getPackaging() {
+        return packaging;
+    }
     // Setters
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name.trim();
     }
 
     public void setTaxPercent(double taxPercent) {
-        this.taxPercent = taxPercent;
+        this.taxPercent = taxPercent <0 ? 0: taxPercent;
+    }
+    public void setPackaging(String packaging) {
+        this.packaging = packaging;
     }
 
     public abstract double calculateCost();

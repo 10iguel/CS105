@@ -2,30 +2,17 @@
  * File: Cookie.java
  * Description: Creating a subclass with the instance of a superclass
  * Lessons Learned: In this lesson I learned how to create an extended class and setting default values
- * for the attributes and overriding a method.
- *     extends, super, super()
- *     public class Cookie extends DessertItem
- *     default constructor
- *     public Cookie() {
- *         super();
- *         this.cookieQty = 0;
- *         this.pricePerDozen = 0.0;
- *     }
- *     constructor with arguments
- *     public Cookie(String name, int cookieQty, double pricePerDozen) {
- *         super(name);
- *         this.cookieQty = cookieQty;
- *         this.pricePerDozen = pricePerDozen;
- *     }
- *     Validations if there are negative values entered
- *     @Override
- *     public double calculateCost() {
- *         return cookieQty * pricePerDozen/12;
- *     }
- * Instructor's Name: Barbara Chamberlin
+ * for the attributes and overriding the toString method to all the values.
+ * Validations if there are negative values entered
+ * String.format("%s\n\t %-45s %s %17s", getName() + " " + " Cookie",
+ * getCookieQty())
  *
+ * @Override public double calculateCost() {
+ * return cookieQty * pricePerDozen/12;
+ * }
+ * Instructor's Name: Barbara Chamberlin
  * @author: Miguel Espinoza.
- * @since: 10/05/2022.
+ * @since: 10/12/2022.
  */
 
 package DessertShop;
@@ -36,12 +23,14 @@ public class Cookie extends DessertItem {
 
     public Cookie() {
         super();
+        this.setPackaging("");
         this.cookieQty = 0;
         this.pricePerDozen = 0.0;
     }
 
     public Cookie(String name, int cookieQty, double pricePerDozen) {
         super(name);
+        this.setPackaging("Box");
         this.cookieQty = cookieQty;
         this.pricePerDozen = pricePerDozen;
     }
@@ -74,6 +63,16 @@ public class Cookie extends DessertItem {
 
     @Override
     public double calculateCost() {
-        return cookieQty * pricePerDozen/12;
+        return cookieQty * pricePerDozen / 12;
+    }
+
+    public String toString() {//overriding the toString() method
+        String line1 = getName() + " " + " Cookie";
+        String line2 = getCookieQty() + " cookies @ " + String.format("%.2f", getPricePerDozen()) + "/dozen:";
+        String line3 = "$" + String.format("%.2f", (pricePerDozen * cookieQty) / 12);
+        String line4 = "[Tax:$" + String.format("%.2f", super.calculateTax()) + "]";
+
+        return String.format("%s(%s)\n\t %-45s %s %17s", line1,super.getPackaging(), line2, line3, line4);
+
     }
 }

@@ -57,9 +57,21 @@ class DessertItemTest {
         DessertItem dessertItem = new Candy("        ",10,1);
         assertEquals(7.25, dessertItem.getTaxPercent());
     }
+    @Test
     public void setTaxPercent(){
         DessertItem dessertItem = new Candy();
         dessertItem.setTaxPercent(5.2);
         assertEquals(5.2,dessertItem.getTaxPercent());
+    }
+    @Test
+    public void getPackaging(){
+        DessertItem dessertItem = new Candy("        ",10,1);
+        assertEquals("Bag", dessertItem.getPackaging());
+    }
+    @Test
+    public void setPackaging(){
+        DessertItem dessertItem = new Candy();
+        dessertItem.setPackaging("Bag");
+        assertEquals("Bag", dessertItem.getPackaging());
     }
 }

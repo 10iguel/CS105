@@ -1,7 +1,8 @@
 /**
  * File: DessertShop.java
  * Description: Creating the interface with the user to let the user type their choices
- * Lessons Learned: In this lesson I learned how to use the arrays with methods.
+ * Lessons Learned: In this lesson I learned how to use the arrays with methods and using the toString method to
+ * display all the orders.
  * my classes and string formatting.
  * Storing all of them in an Array
  * return new Candy(name, candyWeight1, pricePerPound1);
@@ -10,7 +11,7 @@
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 10/05/2022.
+ * @since: 10/12/2022.
  */
 
 package DessertShop;
@@ -67,18 +68,21 @@ public class DessertShop {
         }//end of while (!done)
         System.out.println("\n");
 
-//        System.out.println("These are the names of the orders");
+        /*System.out.println("These are the names of the orders");*/
         int index = 0;
-        for (DessertItem order : orders.getOrderList()) {
+        System.out.println("----------------------------------Receipt----------------------------------------------------------");
+        for (DessertItem order: orders.getOrderList()){
             index++;
-            System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n", order.getName(), order.calculateCost(), order.calculateTax());
+            //System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n",order.getName(), order.calculateCost(), order.calculateTax());
+            System.out.println(order);
         }
-        System.out.printf("%s", "----------------------------------------------\n");
-
-        System.out.println();
+        System.out.println("-----------------------------------------------------------------------------------------------------");
+        System.out.printf("Total number of items in order: %d\n",orders.itemCount());
         System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n", "Order Subtotals: ", orders.orderCost(), orders.orderTax());
-        System.out.printf("%-25s$%-8.2f\n", "Order Total: ", orders.orderCost() + orders.orderTax());
-        System.out.printf("Total items in the order: %d", orders.itemCount());
+
+        System.out.printf("%-25s$%-8.2f\n", "Order Total:" ,orders.orderCost() + orders.orderTax());
+
+        System.out.println("-----------------------------------------------------------------------------------------------------");
     }
     private static DessertItem userPromptCandy(){
 
