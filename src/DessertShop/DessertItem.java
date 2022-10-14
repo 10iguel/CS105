@@ -1,13 +1,13 @@
 /**
  * File: DessertItem.java
- * Description: Creating a superclass
- * Lessons Learned: In this lesson I learned how to create a new attribute and instanced with a value and use the abstract
- * to call this class in all the subclasses.
- *     public abstract class DessertItem
+ * Description: Implementing the Packaging interface .
+ * Lessons Learned: In this lesson I learned how to create a new attribute and add a new attribute with its getter
+ * and setter for the interface
+ *     private String packaging;
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 10/12/2022.
+ * @since: 10/14/2022.
  */
 
 package DessertShop;

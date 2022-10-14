@@ -4,15 +4,16 @@
  * Lessons Learned: In this lesson I learned how to create an extended class and setting default values
  * for the attributes and overriding the toString method to all the values.
  * Validations if there are negative values entered
+ * Adding the value of the interface and calling with super
  * String.format("%s\n\t %-45s %s %17s", getName() + " " + " Cookie",
- * getCookieQty())
+ * super.getPackaging()
  *
  * @Override public double calculateCost() {
  * return cookieQty * pricePerDozen/12;
  * }
  * Instructor's Name: Barbara Chamberlin
  * @author: Miguel Espinoza.
- * @since: 10/12/2022.
+ * @since: 10/14/2022.
  */
 
 package DessertShop;

@@ -3,14 +3,15 @@
  * Description: Creating a subclass with the instance of a superclass and overriding with the method's abstract class
  * Lessons Learned: In this lesson I learned how to create an extended class, setting default values and overriding the
  * toString method to all the values
+ * Adding the value of the interface and calling with super
  *
  * @Override public double calculateCost() {
  * return pricePerScoop * scoopCount;
  * }
- * String.format("%s\n\t %-45s %s %17s", getName()
+ * super.getPackaging()
  * Instructor's Name: Barbara Chamberlin
  * @author: Miguel Espinoza.
- * @since: 10/12/2022.
+ * @since: 10/14/2022.
  */
 package DessertShop;
 
