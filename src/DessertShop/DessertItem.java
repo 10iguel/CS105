@@ -1,18 +1,21 @@
 /**
  * File: DessertItem.java
  * Description: Implementing the Packaging interface .
- * Lessons Learned: In this lesson I learned how to create a new attribute and add a new attribute with its getter
+ * Lessons Learned: In this lesson I learned how to create a comparable and override it
  * and setter for the interface
- *     private String packaging;
+ * Adding the comparable interface with a specific class
+ * Comparable<DessertItem>
+ * Overriding the compare
+ * public int compareTo( DessertItem cost)
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 10/14/2022.
+ * @since: 10/24/2022.
  */
 
 package DessertShop;
 
-public abstract class DessertItem implements Packaging {
+public abstract class DessertItem implements Packaging, Comparable<DessertItem> {
     private String name;
 
     private double taxPercent = 7.25;
@@ -46,15 +49,28 @@ public abstract class DessertItem implements Packaging {
     }
 
     public void setTaxPercent(double taxPercent) {
-        this.taxPercent = taxPercent <0 ? 0: taxPercent;
+        this.taxPercent = taxPercent < 0 ? 0 : taxPercent;
     }
+
     public void setPackaging(String packaging) {
         this.packaging = packaging;
     }
 
     public abstract double calculateCost();
 
-    public double calculateTax(){
-        return (taxPercent * calculateCost())/100 ;
+    public double calculateTax() {
+        return (taxPercent * calculateCost()) / 100;
     }
+
+    @Override
+    public int compareTo( DessertItem cost) {
+        if (this.calculateCost() < cost.calculateCost()) {
+            return -1;
+        } else if (this.calculateCost() > cost.calculateCost()) {
+            return 1;
+        } else {
+            return -0;
+        }
+    }
+
 }

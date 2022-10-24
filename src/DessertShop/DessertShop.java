@@ -4,24 +4,24 @@
  * Lessons Learned: In this lesson I learned how to use the arrays with methods and using the toString method to
  * display all the orders.
  * my classes and string formatting.
- * Storing all of them in an Array
- * return new Candy(name, candyWeight1, pricePerPound1);
- * Calling a lots of objects in the same main method.
- * Candy candy1 = new Candy("Candy Corn", 1.5, .25);
+ * Sort the array with collection
+ * Collections.sort(orders.getOrderList());
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 10/12/2022.
+ * @since: 10/24/2022.
  */
 
 package DessertShop;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class DessertShop {
     public static void main(String[] args) {
         Order orders = new Order();
-
+        String paymentMethod = "";
         Scanner sIn = new Scanner(System.in);
         String choice;
         DessertItem orderItem;
@@ -43,22 +43,22 @@ public class DessertShop {
                     case "1":
                         orderItem = userPromptCandy();
                         orders.add(orderItem);
-                        System.out.printf("%n%s has been added to your order.%n",orderItem.getName());
+                        System.out.printf("%n%s has been added to your order.%n", orderItem.getName());
                         break;
                     case "2":
                         orderItem = userPromptCookie();
                         orders.add(orderItem);
-                        System.out.printf("%n%s has been added to your order.%n",orderItem.getName());
+                        System.out.printf("%n%s has been added to your order.%n", orderItem.getName());
                         break;
                     case "3":
                         orderItem = userPromptIceCream();
                         orders.add(orderItem);
-                        System.out.printf("%n%s has been added to your order.%n",orderItem.getName());
+                        System.out.printf("%n%s has been added to your order.%n", orderItem.getName());
                         break;
                     case "4":
                         orderItem = userPromptSundae();
                         orders.add(orderItem);
-                        System.out.printf("%n%s has been added to your order.%n",orderItem.getName());
+                        System.out.printf("%n%s has been added to your order.%n", orderItem.getName());
                         break;
                     default:
                         System.out.println("Invalid response:  Please enter a choice from the menu (1-4)");
@@ -68,23 +68,54 @@ public class DessertShop {
         }//end of while (!done)
         System.out.println("\n");
 
+        done = false;
+
+        while (!done) {
+            System.out.printf("What form of payment will be used? (%s,%s,%s): ", PayType.CASH, PayType.CARD, PayType.PHONE);
+            paymentMethod = sIn.nextLine();
+
+            for (PayType type : PayType.values()){
+                if (paymentMethod.equals(type.name())){
+                    orders.setPayType(PayType.valueOf(paymentMethod));
+                }
+            }
+            switch (paymentMethod) {
+                case "CASH":
+                case "CARD":
+                case "PHONE":
+                    done = true;
+                    break;
+                default:
+                    System.out.println("That's not a valid form of payment.");
+                    break;
+            }
+        }
+        System.out.println("\n");
+
+        Collections.sort(orders.getOrderList());
+
+
+
         /*System.out.println("These are the names of the orders");*/
         int index = 0;
         System.out.println("----------------------------------Receipt----------------------------------------------------------");
-        for (DessertItem order: orders.getOrderList()){
+        for (DessertItem order : orders.getOrderList()) {
             index++;
             //System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n",order.getName(), order.calculateCost(), order.calculateTax());
             System.out.println(order);
         }
         System.out.println("-----------------------------------------------------------------------------------------------------");
-        System.out.printf("Total number of items in order: %d\n",orders.itemCount());
+        System.out.printf("Total number of items in order: %d\n", orders.itemCount());
         System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n", "Order Subtotals: ", orders.orderCost(), orders.orderTax());
 
-        System.out.printf("%-25s$%-8.2f\n", "Order Total:" ,orders.orderCost() + orders.orderTax());
+        System.out.printf("%-25s$%-8.2f\n", "Order Total:", orders.orderCost() + orders.orderTax());
 
         System.out.println("-----------------------------------------------------------------------------------------------------");
+
+        System.out.println(orders);
+
     }
-    private static DessertItem userPromptCandy(){
+    private static DessertItem userPromptCandy() {
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nEnter the type of candy: ");
@@ -98,7 +129,7 @@ public class DessertShop {
 
         return new Candy(name, candyWeight1, pricePerPound1);
     }
-    private static DessertItem userPromptCookie(){
+    private static DessertItem userPromptCookie() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nEnter the type of cookie: ");
         String name = scanner.nextLine();
@@ -112,7 +143,8 @@ public class DessertShop {
         return new Cookie(name, cookieQty1, pricePerDozen1);
 
     }
-    private static DessertItem userPromptIceCream(){
+
+    private static DessertItem userPromptIceCream() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nEnter the type of Ice Cream used: ");
         String name = scanner.nextLine();
@@ -126,7 +158,8 @@ public class DessertShop {
         return new IceCream(name, scoopCount1, pricePerScoop1);
 
     }
-    private static DessertItem userPromptSundae(){
+
+    private static DessertItem userPromptSundae() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nEnter the type of Ice Cream: ");
         String name = scanner.nextLine();

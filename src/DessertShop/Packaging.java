@@ -1,5 +1,5 @@
 /**
- * File: DessertShop.java
+ * File: Packaging.java
  * Description: Creating the interface to implement to the classes
  * Lessons Learned: In this lesson I learned how to create and use interfaces
  *  method without an arguments
