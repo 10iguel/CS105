@@ -80,4 +80,22 @@ class CookieTest {
         Cookie cookie = new Cookie("Cookie Dough",2,2.5);
         assertEquals(0.030208333333333334, cookie.calculateTax(),"Error");
     }
+    @Test
+    public void isSameCookie(){
+        Order order = new Order();
+        Cookie cookie = new Cookie();
+        Cookie cookie1 = new Cookie("cookie1", 10, 1);
+        Cookie cookie2 = new Cookie("cookie1", 10, 1);
+        assertEquals(true, cookie1.isSameAs(cookie2));
+    }
+    @Test
+    public void isDifferentCookie(){
+        Order order = new Order();
+        Cookie cookie = new Cookie();
+        Cookie cookie1 = new Cookie("cookie1", 20, 20);
+        Cookie cookie2 = new Cookie("cookie1", 20, 10);
+        order.add(cookie1);
+        order.add(cookie2);
+        assertEquals(false, cookie1.isSameAs(cookie2));
+    }
 }

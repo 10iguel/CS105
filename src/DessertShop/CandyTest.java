@@ -74,4 +74,24 @@ class CandyTest {
         Candy candy = new Candy("bar",3,1.5);
         assertEquals(0.32625, candy.calculateTax(),"Error");
     }
+    @Test
+    public void isSameCandy(){
+        Order order = new Order();
+        Candy candy = new Candy();
+        Candy candy1 = new Candy("candy1", 10, 10);
+        Candy candy2 = new Candy("candy1", 20, 10);
+        order.add(candy1);
+        order.add(candy2);
+        assertEquals(true, candy1.isSameAs(candy2));
+    }
+    @Test
+    public void isDifferentCandy(){
+        Order order = new Order();
+        Candy candy = new Candy();
+        Candy candy1 = new Candy("candy1", 10, 10);
+        Candy candy2 = new Candy("candy1", 10, 30);
+        order.add(candy1);
+        order.add(candy2);
+        assertEquals(false, candy1.isSameAs(candy2));
+    }
 }

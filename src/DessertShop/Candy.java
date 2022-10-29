@@ -17,7 +17,9 @@
 
 package DessertShop;
 
-public class Candy extends DessertItem {
+import java.util.Objects;
+
+public class Candy extends DessertItem implements SameItem<Candy>{
     private double candyWeight;
     private double pricePerPound;
 
@@ -74,6 +76,7 @@ public class Candy extends DessertItem {
         String line4 = "[Tax:$" + String.format("%.2f", super.calculateTax()) + "]";
         return String.format("%s(%s)\n\t %-45s %s %17s", line1,super.getPackaging(), line2, line3, line4);
     }
-
-
+    public boolean isSameAs(Candy same) {
+        return Objects.equals(same.getName(), this.getName()) && same.getPricePerPound() == this.getPricePerPound();
+    }
 }
