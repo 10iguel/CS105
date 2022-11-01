@@ -2,19 +2,24 @@
  * File: Residential.java
  * Description: Creating a superclass for more subclasses
  * Lessons Learned: In this lesson I learned how to use the inheritance properties to create organized
- * classes and validations on the setters with trim()
+ * classes and validations on the setters with trim() and updating the abstract class
  *     this.zip = zip.trim()
+ *     public  abstract class Property
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 10/11/2022.
+ * @since: 10/31/2022.
  */
 
 package RealEstate;
 
-public class Property {
+public  abstract class Property {
     private String streetAddress;
     private String  zip;
+
+    private double listPrice = 0;
+
+    private double appraisalPrice = 0;
 
     public Property(){
         this.streetAddress = "";
@@ -34,6 +39,14 @@ public class Property {
         return zip;
     }
 
+    public double getListPrice() {
+        return listPrice;
+    }
+
+    public double getAppraisalPrice() {
+        return appraisalPrice;
+    }
+
     public void setStreetAddress(String streetAddress) {
         this.streetAddress = streetAddress.trim();
     }
@@ -41,4 +54,13 @@ public class Property {
     public void setZip(String zip) {
         this.zip = zip.trim();
     }
+
+    public void setListPrice(double listPrice) {
+        this.listPrice = listPrice;
+    }
+
+    protected void setAppraisalPrice(double appraisalPrice) {
+        this.appraisalPrice = appraisalPrice;
+    }
+    public abstract double calculateAppraisalPrice();
 }

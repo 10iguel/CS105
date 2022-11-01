@@ -10,17 +10,17 @@
  * }
  * return sum;
  * }
+ * Use casting and instanceof keywords to get the same class name
+ * dessert instanceof Candy
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 10/17/2022.
+ * @since: 10/31/2022.
  */
 
 package DessertShop;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
 public class Order implements Payable {
     private ArrayList<DessertItem> order;
@@ -90,6 +90,10 @@ public class Order implements Payable {
 
     public String toString() {
         return String.format("%n Paid for with: %s", getPayType());
+    }
+
+    public void clear(){
+        order.clear();
     }
 
 }

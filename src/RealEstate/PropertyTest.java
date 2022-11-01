@@ -6,7 +6,7 @@
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 10/11/2022.
+ * @since: 10/31/2022.
  */
 
 package RealEstate;
@@ -19,33 +19,33 @@ class PropertyTest {
 
     @Test
     void getStreetAddress() {
-        Property property = new Property("254 S", "8425");
+        Property property = new House("254 S", "8425",10,1,1.2,1.2);
         assertEquals("254 S", property.getStreetAddress());
     }
 
     @Test
     void getZip() {
-        Property property = new Property("254 S", "8425");
+        Property property = new House("254 S", "8425",10,1,1.2,1.2);
         assertEquals("8425", property.getZip());
     }
 
     @Test
     void setStreetAddress() {
-        Property property = new Property();
+        Property property = new House();
         property.setStreetAddress("254 S");
         assertEquals("254 S", property.getStreetAddress());
     }
 
     @Test
     void setZip() {
-        Property property = new Property();
+        Property property = new House();
         property.setZip("8451");
         assertEquals("8451", property.getZip());
     }
 
     @Test
     void setZipWithSpaces() {
-        Property property = new Property();
+        Property property = new House();
         property.setZip("           ");
         assertEquals("", property.getZip());
     }

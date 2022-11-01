@@ -2,17 +2,16 @@
  * File: Candy.java
  * Description: Creating a subclass with the instance of a superclass
  * Lessons Learned: In this lesson I learned how to create an extended class and setting default values
- * for the attributes and overriding the  toString method to all the values
+ * for the attributes and overriding the  toString method to all the values and to use the SameItem interface
  * Adding the value of the interface and calling with super
  * public double calculateCost() {
  * return candyWeight*pricePerPound;
  * }
- * String.format("%s\n\t %-45s %s %17s",
- * super.getPackaging()
+ * implements SameItem<Candy>
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 10/14/2022.
+ * @since: 10/31/2022.
  */
 
 package DessertShop;

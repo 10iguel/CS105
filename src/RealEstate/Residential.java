@@ -2,17 +2,18 @@
  * File: Residential.java
  * Description: Creating a superclass for 2 subclasses
  * Lessons Learned: In this lesson I learned how to use the inheritance properties to create organized
- * classes and validations on the setters with ternary operators
+ * classes and validations on the setters with ternary operators and updating the abstract class
  *     bedCount < 0 ? 0 : bedCount
+ *     public abstract class Residential extends Property
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 10/11/2022.
+ * @since: 10/31/2022.
  */
 
 package RealEstate;
 
-public class Residential extends Property {
+public abstract class Residential extends Property {
     private int bedCount;
     private int bathCount;
     private double sqFootage;
@@ -54,4 +55,6 @@ public class Residential extends Property {
     public void setSize(double sqFootage) {
         this.sqFootage = sqFootage < 0 ? 0 : sqFootage;
     }
+
+    public abstract double calculateAppraisalPrice();
 }

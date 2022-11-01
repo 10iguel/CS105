@@ -1,131 +1,38 @@
 package DessertShop;
 
-import java.util.Scanner;
+import week2.Person;
+
+import java.util.*;
+
 
 public class Test {
-
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        Scanner in1 = new Scanner(System.in); // Scanner for number
-        Scanner in2 = new Scanner(System.in);// Scanner for string to play again
+        Map<String, Person> staff = new HashMap<>();
+        staff.put("144-25-5464", new Person("Rachel","1993-05-12","F","801-555-1212" ));
+        staff.put("567-24-2546", new Person("Rachel","1993-05-12","F","801-555-1212" ));
+        staff.put("157-62-7935", new Person("Rachel","1993-05-12","F","801-555-1212" ));
+        staff.put("456-62-5527", new Person("Rachel","1993-05-12","F","801-555-1212" ));
 
-//defining the variable
-        boolean valid = false;
-        boolean playAgain = false;
-        String input = "";
-        // define the range of numbers
-        int num1 = 0;
-        int num2 = 0;
-        int num3 = 0;
-        int largestNum = 0;
+        // print all entries
 
-//primary do while loop
-        do {
-            System.out.println("This program will ask the user for three numbers + "
-                    + "and determine which of the three number is the largest.\n");
-            System.out.println("\n\n");
+        System.out.println(staff);
 
-            // do while loop for first number validation
-            do {
-                System.out.println("Please enter the first number: ");
-                System.out.println("Look here "+in1.hasNextInt());
-                 //if block to check the input is valid
-                if (in1.hasNextInt()) {
-                    num1 = in1.nextInt();
-                    valid = true;
-                } else {
-                    System.out.println("Invalid Response.Please enter a whole number.");
-                } // end of if and else statement
-//                try{
-//                    num1 = Integer.parseInt(in1.nextLine());
-//                    valid = true;
-//                }catch (Exception e){
-//                    System.out.println("Invalid Response.Please enter a whole number.");
-//                }
+        // remove an entry
 
-            } while (!valid); // if false run the loop again
-            valid = false; // to reset the validation
+        staff.remove("567-24-2546");
 
-            // do while loop for second number validation
-            do {
-                System.out.println("Please enter the second number: ");
+        // replace an entry
 
-                // if block to check the input is valid
-                if (in1.hasNextInt()) {
-                    num2 = in1.nextInt();
-                    valid = true;
-                } else {
-                    System.out.println("Invalid responce.Please enter a whole number.");
-                } // end of if and else statement
-            } while (!valid); // if false run the loop again
-            valid = false; // this resets the validation
+        staff.put("456-62-5527", new Person("Rachel","1993-05-12","F","801-555-1212" ));
 
-            // do while loop for 3rd number validation
-            do {
-                System.out.println("Please enter the third number: ");
+        // look up a value
 
-                // if block to check the input is valid
-                if (in1.hasNextInt()) {
-                    num3 = in1.nextInt();
-                    valid = true;
-                } else {
-                    System.out.println("Invalid Response. Please enter a whole number.");
-                } // end of if and else
-            } while (!valid); // if false run the loop again
-            valid = false; // this resets the validation
+        System.out.println(staff.get("157-62-7935"));
 
-            // passing the number to my new method and save the results
+        // iterate through all entries
 
-            largestNum = largestNum(num1, num2, num3);
-
-            // print results
-            System.out.println("\n");
-            System.out.println("The largest of the three number is: " + largestNum + "/n/n");
-
-            // non numeric input validation for play again feature do while loop
-            do {
-                valid = false;
-                System.out.println("Would you like to play again?: (Y/N) ");
-                input = in1.next();
-
-                // if block to check the input
-                if (input.equalsIgnoreCase("Y") || input.equalsIgnoreCase("N")) {
-                    valid = true;
-                } else {
-                    System.out.println("Invalid Response. Please use Y for yes and N for no. ");
-                    valid = false;
-                } // end of if and else statement
-            } while (!valid);
-
-            // if and else if to decide
-            if (input.equalsIgnoreCase("Y")) {
-                playAgain = false;
-                System.out.println("Okay!");
-            } else if (input.equalsIgnoreCase("N")) {
-                System.out.println("Thanks for playing. Have a nice day!");
-                playAgain = true;
-            } // end of if else statement
-
-        } while (!playAgain); // will reset the game with the primary do while.
-
-        in1.close(); // close of number scanner
-        in2.close();// close of string scanner for play again.
-    }// end of the main method
-
-    public static int largestNum(int i, int j, int k) {// int i = num1, int j= num2, int k = num3
-        int a = 0; // links to int largestNum
-
-        // determine which number is largest with if, else if, and else statement.
-        if (i >= j && i >= k)
-            i = 1;
-        else if (j >= i && j >= k)
-            a = k;
-        else if (k >= i && k >= j)
-            a = k;
-        else
-            System.out.println("Error of some sort.");
-        return a;
-    }// end of method largeNumber
-
-}// end of Lab6a
+        staff.forEach((k, v) ->
+                System.out.println("key=" + k + ", value=" + v));
+    }
+}
 

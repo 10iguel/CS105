@@ -25,93 +25,106 @@ public class DessertShop {
         String choice;
         DessertItem orderItem;
 
-        boolean done = false;
-        while (!done) {
-            System.out.println("\n1: Candy");
-            System.out.println("2: Cookie");
-            System.out.println("3: Ice Cream");
-            System.out.println("4: Sunday");
+        boolean closed = false;
 
-            System.out.print("\nWhat would you like to add to the order? (1-4, Enter for done): ");
-            choice = sIn.nextLine();
+        while(!closed) {
 
-            if (choice.equals("")) {
-                done = true;
-            } else {
-                switch (choice) {
-                    case "1":
-                        orderItem = userPromptCandy();
-                        orders.add(orderItem);
-                        System.out.printf("%n%s has been added to your order.%n", orderItem.getName());
-                        break;
-                    case "2":
-                        orderItem = userPromptCookie();
-                        orders.add(orderItem);
-                        System.out.printf("%n%s has been added to your order.%n", orderItem.getName());
-                        break;
-                    case "3":
-                        orderItem = userPromptIceCream();
-                        orders.add(orderItem);
-                        System.out.printf("%n%s has been added to your order.%n", orderItem.getName());
-                        break;
-                    case "4":
-                        orderItem = userPromptSundae();
-                        orders.add(orderItem);
-                        System.out.printf("%n%s has been added to your order.%n", orderItem.getName());
+            boolean done = false;
+            while (!done) {
+                System.out.println("\n1: Candy");
+                System.out.println("2: Cookie");
+                System.out.println("3: Ice Cream");
+                System.out.println("4: Sunday");
+
+                System.out.print("\nWhat would you like to add to the order? (1-4, Enter for done): ");
+                choice = sIn.nextLine();
+
+                if (choice.equals("")) {
+                    done = true;
+                } else {
+                    switch (choice) {
+                        case "1":
+                            orderItem = userPromptCandy();
+                            orders.add(orderItem);
+                            System.out.printf("%n%s has been added to your order.%n", orderItem.getName());
+                            break;
+                        case "2":
+                            orderItem = userPromptCookie();
+                            orders.add(orderItem);
+                            System.out.printf("%n%s has been added to your order.%n", orderItem.getName());
+                            break;
+                        case "3":
+                            orderItem = userPromptIceCream();
+                            orders.add(orderItem);
+                            System.out.printf("%n%s has been added to your order.%n", orderItem.getName());
+                            break;
+                        case "4":
+                            orderItem = userPromptSundae();
+                            orders.add(orderItem);
+                            System.out.printf("%n%s has been added to your order.%n", orderItem.getName());
+                            break;
+                        default:
+                            System.out.println("Invalid response:  Please enter a choice from the menu (1-4)");
+                            break;
+                    }//end of switch (choice)
+                }//end of if (choice.equals(""))
+            }//end of while (!done)
+            System.out.println("\n");
+
+            done = false;
+
+            while (!done) {
+                System.out.printf("What form of payment will be used? (%s,%s,%s): ", PayType.CASH, PayType.CARD, PayType.PHONE);
+                paymentMethod = sIn.nextLine();
+
+                for (PayType type : PayType.values()) {
+                    if (paymentMethod.equals(type.name())) {
+                        orders.setPayType(PayType.valueOf(paymentMethod));
+                    }
+                }
+                switch (paymentMethod) {
+                    case "CASH":
+                    case "CARD":
+                    case "PHONE":
+                        done = true;
                         break;
                     default:
-                        System.out.println("Invalid response:  Please enter a choice from the menu (1-4)");
+                        System.out.println("That's not a valid form of payment.");
                         break;
-                }//end of switch (choice)
-            }//end of if (choice.equals(""))
-        }//end of while (!done)
-        System.out.println("\n");
-
-        done = false;
-
-        while (!done) {
-            System.out.printf("What form of payment will be used? (%s,%s,%s): ", PayType.CASH, PayType.CARD, PayType.PHONE);
-            paymentMethod = sIn.nextLine();
-
-            for (PayType type : PayType.values()){
-                if (paymentMethod.equals(type.name())){
-                    orders.setPayType(PayType.valueOf(paymentMethod));
                 }
             }
-            switch (paymentMethod) {
-                case "CASH":
-                case "CARD":
-                case "PHONE":
-                    done = true;
-                    break;
-                default:
-                    System.out.println("That's not a valid form of payment.");
-                    break;
+            System.out.println("\n");
+
+            Collections.sort(orders.getOrderList());
+
+
+
+            /*System.out.println("These are the names of the orders");*/
+            int index = 0;
+            System.out.println("----------------------------------Receipt----------------------------------------------------------");
+            for (DessertItem order : orders.getOrderList()) {
+                index++;
+                //System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n",order.getName(), order.calculateCost(), order.calculateTax());
+                System.out.println(order);
+            }
+            System.out.println("-----------------------------------------------------------------------------------------------------");
+            System.out.printf("Total number of items in order: %d\n", orders.itemCount());
+            System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n", "Order Subtotals: ", orders.orderCost(), orders.orderTax());
+
+            System.out.printf("%-25s$%-8.2f\n", "Order Total:", orders.orderCost() + orders.orderTax());
+
+            System.out.println("-----------------------------------------------------------------------------------------------------");
+
+            System.out.println(orders);
+            System.out.println("Hit enter to start a new order");
+            String continueOrder =  sIn.nextLine();
+            if (continueOrder == ""){
+                closed = false;
+                orders.clear();
+            }else {
+                closed = true;
             }
         }
-        System.out.println("\n");
-
-        Collections.sort(orders.getOrderList());
-
-
-
-        /*System.out.println("These are the names of the orders");*/
-        int index = 0;
-        System.out.println("----------------------------------Receipt----------------------------------------------------------");
-        for (DessertItem order : orders.getOrderList()) {
-            index++;
-            //System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n",order.getName(), order.calculateCost(), order.calculateTax());
-            System.out.println(order);
-        }
-        System.out.println("-----------------------------------------------------------------------------------------------------");
-        System.out.printf("Total number of items in order: %d\n", orders.itemCount());
-        System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n", "Order Subtotals: ", orders.orderCost(), orders.orderTax());
-
-        System.out.printf("%-25s$%-8.2f\n", "Order Total:", orders.orderCost() + orders.orderTax());
-
-        System.out.println("-----------------------------------------------------------------------------------------------------");
-
-        System.out.println(orders);
 
     }
     private static DessertItem userPromptCandy() {

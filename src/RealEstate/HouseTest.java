@@ -6,7 +6,7 @@
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 10/11/2022.
+ * @since: 10/31/2022.
  */
 
 package RealEstate;
@@ -34,5 +34,10 @@ class HouseTest {
         House house = new House();
         house.setYardAcres(-2.5);
         assertEquals(0, house.getYardAcres());
+    }
+    @Test
+    void getCalculateAppraisalPrice() {
+        House condo = new House("758 E","12",2,1,2.5,3);
+        assertEquals(1412242.5, condo.calculateAppraisalPrice());
     }
 }
