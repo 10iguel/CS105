@@ -31,8 +31,13 @@ public class Test {
 
         // iterate through all entries
 
-        staff.forEach((k, v) ->
-                System.out.println("key=" + k + ", value=" + v));
+        staff.forEach((k, v) ->{
+
+                System.out.println("key=" + k + ", value=" + v);
+                    System.out.println("hey");
+        }
+                );
+
     }
 }
 

@@ -25,6 +25,9 @@ public class Customer {
 
     public Customer(String custName) {
         this.custName = custName;
+        this.custID = nextCustID;
+        nextCustID++;
+        this.orderHistory = new ArrayList<Order>();
     }
 
     public String getCustName() {
@@ -43,7 +46,7 @@ public class Customer {
         this.custName = custName.trim();
     }
 
-    public void addToHistory(ArrayList<Order> orderHistory) {
-        this.orderHistory = orderHistory;
+    public void addToHistory(Order order) {
+        orderHistory.add(order);
     }
 }

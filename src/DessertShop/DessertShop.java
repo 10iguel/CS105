@@ -15,19 +15,23 @@
 package DessertShop;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class DessertShop {
+    private static HashMap<String, Customer> customerDB = new HashMap<>();
+
     public static void main(String[] args) {
         Order orders = new Order();
         String paymentMethod = "";
         Scanner sIn = new Scanner(System.in);
         String choice;
         DessertItem orderItem;
+        String customerName;
 
         boolean closed = false;
 
-        while(!closed) {
+        while (!closed) {
 
             boolean done = false;
             while (!done) {
@@ -72,6 +76,18 @@ public class DessertShop {
             System.out.println("\n");
 
             done = false;
+            System.out.println("Enter the customer name:");
+            customerName = sIn.nextLine();
+            if (!customerDB.containsKey(customerName)) {
+                Customer customer = new Customer(customerName);
+                customerDB.put(customerName, customer);
+                customerDB.get(customerName).addToHistory(orders);
+            }else {
+                customerDB.get(customerName).addToHistory(orders);
+            }
+
+
+
 
             while (!done) {
                 System.out.printf("What form of payment will be used? (%s,%s,%s): ", PayType.CASH, PayType.CARD, PayType.PHONE);
@@ -116,17 +132,23 @@ public class DessertShop {
             System.out.println("-----------------------------------------------------------------------------------------------------");
 
             System.out.println(orders);
+
+            System.out.println("-----------------------------------------------------------------------------------------------------");
+            System.out.printf("Customer Name: %s       Customer ID: %d       Total Orders: %d\n",customerName,customerDB.get(customerName).getID(),
+                    customerDB.get(customerName).getOrderHistory().size());
+
             System.out.println("Hit enter to start a new order");
-            String continueOrder =  sIn.nextLine();
-            if (continueOrder == ""){
+            String continueOrder = sIn.nextLine();
+            if (continueOrder == "") {
                 closed = false;
                 orders.clear();
-            }else {
+            } else {
                 closed = true;
             }
         }
 
     }
+
     private static DessertItem userPromptCandy() {
 
         Scanner scanner = new Scanner(System.in);
@@ -141,6 +163,7 @@ public class DessertShop {
 
         return new Candy(name, candyWeight1, pricePerPound1);
     }
+
     private static DessertItem userPromptCookie() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nEnter the type of cookie: ");
