@@ -27,7 +27,7 @@ public class Customer {
         this.custName = custName;
         this.custID = nextCustID;
         nextCustID++;
-        this.orderHistory = new ArrayList<Order>();
+        orderHistory = new ArrayList<>();
     }
 
     public String getCustName() {
@@ -42,7 +42,7 @@ public class Customer {
         return custID;
     }
 
-    public void setCustName(String custName) {
+    public void setName(String custName) {
         this.custName = custName.trim();
     }
 

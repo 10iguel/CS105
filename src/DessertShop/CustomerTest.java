@@ -34,7 +34,7 @@ class CustomerTest {
     @Test
     void setCustName() {
         Customer customer = new Customer();
-        customer.setCustName("man");
+        customer.setName("man");
         assertEquals("man", customer.getCustName());
     }
 

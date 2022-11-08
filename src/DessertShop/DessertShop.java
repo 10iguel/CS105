@@ -6,10 +6,11 @@
  * my classes and string formatting.
  * Sort the array with collection
  * Collections.sort(orders.getOrderList());
+ * new HashMap<>();
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 10/24/2022.
+ * @since: 11/03/2022.
  */
 
 package DessertShop;
@@ -17,6 +18,7 @@ package DessertShop;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.Set;
 
 public class DessertShop {
     private static HashMap<String, Customer> customerDB = new HashMap<>();
@@ -39,8 +41,9 @@ public class DessertShop {
                 System.out.println("2: Cookie");
                 System.out.println("3: Ice Cream");
                 System.out.println("4: Sunday");
+                System.out.println("5: Admin Module");
 
-                System.out.print("\nWhat would you like to add to the order? (1-4, Enter for done): ");
+                System.out.print("\nWhat would you like to add to the order? (1-5, Enter for done): ");
                 choice = sIn.nextLine();
 
                 if (choice.equals("")) {
@@ -67,6 +70,67 @@ public class DessertShop {
                             orders.add(orderItem);
                             System.out.printf("%n%s has been added to your order.%n", orderItem.getName());
                             break;
+                        case "5":
+                            boolean adminFinish = false;
+                            while (!adminFinish) {
+                                System.out.println("\n1: Shop Customer List");
+                                System.out.println("2: Customer Order History");
+                                System.out.println("3: Best Customer");
+                                System.out.println("4: Exit Admin Module");
+                                System.out.print("What would you like to do? (1-4):");
+                                String choiceAdmin = sIn.nextLine();
+                                switch (choiceAdmin) {
+                                    case "1":
+                                        for (String name : customerDB.keySet()) {
+                                            System.out.printf("Customer Name: %s    Customer ID: %d%n", name, customerDB.get(name).getID());
+                                        }
+                                    case "2":
+                                        System.out.println("Enter name");
+                                        String user = sIn.nextLine();
+                                        if (customerDB.containsKey(user)) {
+                                            System.out.printf("Customer Name: %s    Customer ID: %d%n", user, customerDB.get(user).getID());
+                                            for (Order oldOrders : customerDB.get(user).getOrderHistory()) {
+                                                System.out.println("-------------------------------------------------------------------------");
+                                                System.out.println("Order #: " + (customerDB.get(user).getOrderHistory().indexOf(oldOrders) + 1));
+                                                System.out.println("-------------------------------Receipt-----------------------------------");
+                                                for (DessertItem item : oldOrders.getOrderList()) {
+
+                                                    System.out.println(item);
+
+                                                    System.out.println("-----------------------------------------------------------------------");
+                                                    System.out.printf("Total number of items in order: %d\n", oldOrders.itemCount());
+                                                    System.out.printf("%-25s$%-8.2f[Tax: $%.2f]\n", "Order Subtotals: ", oldOrders.orderCost(), oldOrders.orderTax());
+                                                    System.out.printf("%-25s$%-8.2f\n", "Order Total:", oldOrders.orderCost() + oldOrders.orderTax());
+                                                    System.out.println("-----------------------------------------------------------------------");
+                                                }
+                                                System.out.println(oldOrders);
+                                            }
+                                        } else {
+                                            System.out.println("He/She is not a real user");
+                                        }
+                                        break;
+                                    case "3":
+                                        String bestCustomer = "";
+                                        int max = 0;
+                                        Set<String> customers = customerDB.keySet();
+                                        for (String bestCus : customers) {
+                                            if (customerDB.get(bestCus).getOrderHistory().size() > max) {
+                                                bestCustomer = bestCus;
+                                                max = customerDB.get(bestCus).getOrderHistory().size();
+                                            }
+                                        }
+                                        System.out.println("The Dessert Shop's most valued customer is: " + bestCustomer);
+                                        break;
+                                    case "4":
+                                        adminFinish = true;
+                                        break;
+                                    default:
+                                        System.out.println("Invalid response:  Please enter a choice from the menu (1-4)");
+                                        break;
+
+                                }
+                            }
+                            break;
                         default:
                             System.out.println("Invalid response:  Please enter a choice from the menu (1-4)");
                             break;
@@ -79,13 +143,14 @@ public class DessertShop {
             System.out.println("Enter the customer name:");
             customerName = sIn.nextLine();
             if (!customerDB.containsKey(customerName)) {
+                System.out.println("Its a different customer");
                 Customer customer = new Customer(customerName);
                 customerDB.put(customerName, customer);
                 customerDB.get(customerName).addToHistory(orders);
-            }else {
+            } else {
                 customerDB.get(customerName).addToHistory(orders);
+                System.out.println("Its a same customer");
             }
-
 
 
 
@@ -99,16 +164,11 @@ public class DessertShop {
                     }
                 }
                 switch (paymentMethod) {
-                    case "CASH":
-                    case "CARD":
-                    case "PHONE":
-                        done = true;
-                        break;
-                    default:
-                        System.out.println("That's not a valid form of payment.");
-                        break;
+                    case "CASH", "CARD", "PHONE" -> done = true;
+                    default -> System.out.println("That's not a valid form of payment.");
                 }
             }
+            System.out.println(customerDB.get(customerName).getOrderHistory());
             System.out.println("\n");
 
             Collections.sort(orders.getOrderList());
@@ -134,14 +194,14 @@ public class DessertShop {
             System.out.println(orders);
 
             System.out.println("-----------------------------------------------------------------------------------------------------");
-            System.out.printf("Customer Name: %s       Customer ID: %d       Total Orders: %d\n",customerName,customerDB.get(customerName).getID(),
+            System.out.printf("Customer Name: %s       Customer ID: %d       Total Orders: %d\n", customerName, customerDB.get(customerName).getID(),
                     customerDB.get(customerName).getOrderHistory().size());
 
             System.out.println("Hit enter to start a new order");
             String continueOrder = sIn.nextLine();
             if (continueOrder == "") {
                 closed = false;
-                orders.clear();
+                orders = new Order();
             } else {
                 closed = true;
             }
@@ -213,4 +273,5 @@ public class DessertShop {
         return new Sundae(name, scoopCount1, pricePerScoop1, toppingName, toppingPrice1);
 
     }
+
 }
