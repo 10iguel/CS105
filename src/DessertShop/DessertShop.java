@@ -6,11 +6,11 @@
  * my classes and string formatting.
  * Sort the array with collection
  * Collections.sort(orders.getOrderList());
- * new HashMap<>();
+ * used of setKeys and fixing a bug
  * Instructor's Name: Barbara Chamberlin
  *
  * @author: Miguel Espinoza.
- * @since: 11/03/2022.
+ * @since: 11/07/2022.
  */
 
 package DessertShop;
@@ -84,6 +84,7 @@ public class DessertShop {
                                         for (String name : customerDB.keySet()) {
                                             System.out.printf("Customer Name: %s    Customer ID: %d%n", name, customerDB.get(name).getID());
                                         }
+                                        break;
                                     case "2":
                                         System.out.println("Enter name");
                                         String user = sIn.nextLine();
@@ -143,13 +144,11 @@ public class DessertShop {
             System.out.println("Enter the customer name:");
             customerName = sIn.nextLine();
             if (!customerDB.containsKey(customerName)) {
-                System.out.println("Its a different customer");
                 Customer customer = new Customer(customerName);
                 customerDB.put(customerName, customer);
                 customerDB.get(customerName).addToHistory(orders);
             } else {
                 customerDB.get(customerName).addToHistory(orders);
-                System.out.println("Its a same customer");
             }
 
 
