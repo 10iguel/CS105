@@ -36,7 +36,16 @@ public  abstract class Property {
     }
 
     public String getZip() {
-        return zip;
+        int num;
+        try {
+            num = Integer.parseInt(zip);
+            if (num<0){
+                zip = "0";
+            }
+        }catch (NumberFormatException e){
+            zip = "0";
+        }
+        return zip.trim();
     }
 
     public double getListPrice() {
@@ -52,7 +61,17 @@ public  abstract class Property {
     }
 
     public void setZip(String zip) {
-        this.zip = zip.trim();
+        zip = zip.trim();
+        int num;
+        try {
+            num = Integer.parseInt(zip);
+            if (num<0){
+                zip = "0";
+            }
+        }catch (NumberFormatException e){
+            zip = "0";
+        }
+        this.zip = zip;
     }
 
     public void setListPrice(double listPrice) {
